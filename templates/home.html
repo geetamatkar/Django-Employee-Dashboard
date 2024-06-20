@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About our website</title>
+    <title>Home</title>
 </head>
 <body>
 
     <div class="container" style="text-align: center;">
+        {% include 'navbar.html' %}
         <h1>Our Home Page</h1>
         <p>Django is a high-level web framework for Python that promotes rapid development and clean, 
            pragmatic design. Developed by the Django Software Foundation, Django aims to make it easier 
@@ -15,6 +16,19 @@
            focus on writing their application without needing to reinvent the wheel for common functionalities.
         </p>
         <button>Contact us</button>
+
+        <!-- Accessing dynamic page -->
+         {% if isActive %}
+         <div>
+            <h1>Today's date is {{date}}</h1>  
+            <h1>Name is: {{name}}</h1>
+            <hr />
+            <h1>Student data: </h1>
+            <h1>Student name: {{student_data.student_name}}</h1>
+            <h1>Student city: {{student_data.student_address}}</h1>
+         </div>
+
+         {% endif %}
     </div>
     
 </body>
