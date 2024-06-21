@@ -12,39 +12,74 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 offset-md-3">
                 <div class="card">
                     <div class="card-body">
-                        <form action="">
+                        <form action="/emp/add-emp/" method="post">
+                            {% csrf_token %}
 
                             <div class="mb-3">
                                 <label for="name">Employee Name</label>                    
-                                <input id="name" type="text" class="form-control" placeholder="Enter employee name" style="margin-top: 0.1cm; font-size: small;">
+                                <input 
+                                    id="name" 
+                                    type="text" 
+                                    class="form-control" 
+                                    placeholder="Enter employee name" 
+                                    style="margin-top: 0.1cm; font-size: small;"
+                                    name="emp_name"
+                                >
                             </div>
 
                             <div class="mb-3">
                                 <label for="id">Employee ID</label>                    
-                                <input id="id" type="text" class="form-control" placeholder="Enter employee ID" style="margin-top: 0.1cm; font-size: small;">
+                                <input 
+                                    id="id" 
+                                    type="text" 
+                                    class="form-control" 
+                                    placeholder="Enter employee ID" 
+                                    style="margin-top: 0.1cm; font-size: small;"
+                                    name="emp_id"
+                                >
                             </div>
 
                             <div class="mb-3">
                                 <label for="phone">Employee Contact Number</label>                    
-                                <input id="phone" type="text" class="form-control" placeholder="Enter employee contact" style="margin-top: 0.1cm; font-size: small;">
+                                <input 
+                                    id="phone" 
+                                    type="text" 
+                                    class="form-control" 
+                                    placeholder="Enter employee contact" 
+                                    style="margin-top: 0.1cm; font-size: small;"
+                                    name="emp_phone"
+                                >
                             </div>
 
                             <div class="mb-3">
                                 <label for="address">Employee Address</label>                    
-                                <textarea name="" id="address" class="form-control" rows="5" placeholder="Enter adress" style="margin-top: 0.1cm; font-size: small;"></textarea>
+                                <textarea 
+                                    name="emp_address" 
+                                    id="address" 
+                                    class="form-control" 
+                                    rows="5" 
+                                    placeholder="Enter adress" 
+                                    style="margin-top: 0.1cm; font-size: small;"
+                                >
+                                </textarea>
                             </div>
 
                             <div class="mb-3 form-check">
                                 <label for="working">Working</label>                    
-                                <input id="working" class="form-check-input" type="checkbox">
+                                <input 
+                                    id="working" 
+                                    class="form-check-input" 
+                                    type="checkbox"
+                                    name="emp_working"
+                                >
                             </div>
 
                             <div class="mb-3 ">
                                 <label for="department">Department</label>
-                                <select name="" id="department" class="form-control" style="margin-top: 0.1cm; font-size: small;">
+                                <select name="emp_department" id="department" class="form-control" style="margin-top: 0.1cm; font-size: small;">
                                     <option value="CS">Computer Science</option>
                                     <option value="ITM">Information Technology and Management</option>
                                     <option value="BIO">Biology</option>
