@@ -8,7 +8,54 @@
   </head>
   <body>
     {% include 'emp/navbar.html' %}
-    <h1>Employee Management</h1>
+
+    <h1 class="text-center my-3">Employee Management</h1>
+    <h2 class="text-center my-3">Employees List</h2>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>S.No</th>
+                    <th>Name</th>
+                    <th>Employee ID</th>
+                    <th>Phone</th>
+                    <th>Working</th>
+                    <th>Department</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {% for e in emps %}
+                  <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{e.name}}</td>
+                    <td>{{e.emp_id}}</td>
+                    <td>{{e.phone}}</td>
+                    <td>{{e.working}}</td>
+                    <td>{{e.department}}</td>
+                    <td>{{e.address}}</td>
+                    <td>
+                      <a href="/emp/delete-emp/{{e.id}}" class="btn btn-danger btn-sm">Remove</a>
+                      <button class="btn btn-dark btn-sm">Edit</button>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                    
+                </tbody>
+
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>

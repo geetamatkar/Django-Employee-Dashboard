@@ -4,7 +4,11 @@ from .models import Emp
 
 # Create your views here.
 def emp_home(request):
-    return render(request, "emp/home.html", {})
+    emps=Emp.objects.all()
+
+    return render(request, "emp/home.html", {
+        'emps':emps
+    })
 
 def add_emp(request):
     if request.method=='POST':
@@ -36,3 +40,8 @@ def add_emp(request):
         print("Data is coming")
         return redirect("/emp/home/")
     return render(request, "emp/add_emp.html", {})
+
+def delete_emp(request,emp_id):
+    emp=Emp.objects.get(pk=emp_id)
+    emp.delete()
+    return redirect("/emp/home/")
